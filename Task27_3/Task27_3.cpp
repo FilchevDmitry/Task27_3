@@ -2,14 +2,25 @@
 #include"team.h"
 #include<string>
 int main()
-{
-	std::string name;
-	Manedger** teams=new Manedger*[2];
-	for (int i = 0; i < 10; i++)
+{	
+	int company = 0;
+	int team = 0;
+	std::cout << "Enter the number of commands : ";
+	std::cin >> company;
+	Manedger** teams=new Manedger*[company];
+	for (int i = 0; i < company; i++)
 	{
-		teams[i]= new Manedger(2);
+		std::cout << "Enter the number of employees in the team : ";
+		std::cin >> team;
+		teams[i]= new Manedger(team);
+		teams[i]->setManedgerNum(i);
 	}
-	for (int i = 0; i <teams[i]->inWorkersIndex(); i++)
+
+	return 0;
+	
+	delete teams;
+}
+/*	for (int i = 0; i <teams[i]->inWorkersIndex(); i++)
 	{	
 		for (int j = 0; j < teams[i]->inWorkersIndex(); j++)
 		{
@@ -26,11 +37,4 @@ int main()
 			std::cout << name << std::endl;
 		}	
 	}
-	return 0;
-	
-
-
-
-
-	delete teams;
-}
+	*/

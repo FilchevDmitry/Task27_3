@@ -32,3 +32,11 @@ int Manedger::inWorkersIndex()
 {
 	return workersIndex;
 }
+void Manedger::setManedgerNum(int& num)
+{
+	manedgerNum = num;
+}
+int Manedger::getManedgerNum()
+{
+	return manedgerNum;
+}

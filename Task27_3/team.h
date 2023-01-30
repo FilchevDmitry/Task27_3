@@ -20,5 +20,6 @@ public:
 	Manedger(int inIndex);
 	Worker* getWorkIndex(int inIndex);
 	int inWorkersIndex();
-
+	void setManedgerNum(int& num);
+	int getManedgerNum();
 };
