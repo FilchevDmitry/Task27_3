@@ -4,6 +4,7 @@
 class Worker : public Company
 {
 private:
+	bool status;
 	char task;
 public:
 	Worker();
