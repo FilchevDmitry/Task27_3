@@ -4,7 +4,7 @@
 class Worker : public Company
 {
 private:
-	bool status;
+	bool status=false;
 	char task;
 public:
 	Worker();
@@ -16,11 +16,14 @@ class Manedger:public Company
 private:
 	int manedgerNum;
 	Worker** work = nullptr;
-	int workersIndex = 0;
+	int index = 0;
+	bool statusTeam = false;
 public:
-	Manedger(int inIndex);
+	Manedger(int &inIndex);
 	Worker* getWorkIndex(int inIndex);
-	int inWorkersIndex();
+	int workersIndex();
 	void setManedgerNum(int& num);
 	int getManedgerNum();
+	int taskTeam(int& taskCount);
+	bool status();
 };

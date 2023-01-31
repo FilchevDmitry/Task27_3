@@ -13,24 +13,26 @@ void Worker::getTask(char inTask)
 void Worker::setTask(char inTask)
 {
 	task = inTask;
+	status = true;
 }
 Worker* Manedger::getWorkIndex(int inIndex)
 {
 	if (inIndex < 0) return nullptr;
-	if (inIndex >= workersIndex) return nullptr;
+	if (inIndex >= index) return nullptr;
 	return work[inIndex];
 }
-Manedger::Manedger(int inIndex):workersIndex(inIndex)
+
+Manedger::Manedger(int &inIndex): index(inIndex)
 {
 	work = new Worker*[inIndex];
-	for (int i=0; i < workersIndex; i++)
+	for (int i=0; i < index; i++)
 	{
 		work[i] = new Worker();
 	}
 }
-int Manedger::inWorkersIndex()
+int Manedger::workersIndex()
 {
-	return workersIndex;
+	return index;
 }
 void Manedger::setManedgerNum(int& num)
 {
@@ -39,4 +41,13 @@ void Manedger::setManedgerNum(int& num)
 int Manedger::getManedgerNum()
 {
 	return manedgerNum;
+}
+int Manedger::taskTeam(int& taskCount)
+{
+	std::srand(taskCount);
+	return 0;
+}
+bool Manedger::status()
+{
+	return statusTeam;
 }
