@@ -5,6 +5,7 @@ int main()
 {	
 	int company = 0;
 	int team = 0;
+	std::string name;
 	std::cout << "Enter the number of commands : ";
 	std::cin >> company;
 	Manedger** teams=new Manedger*[company];
@@ -15,7 +16,6 @@ int main()
 		teams[i]= new Manedger(team);
 		teams[i]->setManedgerNum(i);
 	}
-
 	return 0;
 	
 	delete teams;
