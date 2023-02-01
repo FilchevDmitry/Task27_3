@@ -10,6 +10,7 @@ public:
 	Worker();
 	void setTask(char inTask);
 	void getTask(char inTask);
+	bool getStatus();
 };
 class Manedger:public Company
 {
@@ -24,6 +25,5 @@ public:
 	int workersIndex();
 	void setManedgerNum(int& num);
 	int getManedgerNum();
-	int taskTeam(int& taskCount);
 	bool status();
 };

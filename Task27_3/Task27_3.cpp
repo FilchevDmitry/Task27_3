@@ -2,13 +2,13 @@
 #include"team.h"
 #include"company.h"
 #include<string>
+#include<stdlib.h>
 int main()
 {	
 	Company boss;
 	int company = 0; // количество комманд
 	int team = 0; // количество работников
 	int freeWorker = 0;// свободных сотрудников
-	int taskCount = 0; // зерно 
 	std::string name;
 	bool exit = true;
 	std::cout << "Enter the name of the boss : ";
@@ -39,18 +39,29 @@ int main()
 	}
 	while (exit)
 	{
+		int taskCount = 0; // зерно 
 		std::cout << "Enter the task : ";
 		std::cin >> taskCount;
 		for (int i = 0; i < company; i++)
 		{
-			if (teams[i]->status() != true)
+			if (taskCount!=0)
 			{
 				taskCount += teams[i]->getManedgerNum();
 				std::srand(taskCount);
 				taskCount = std::rand() % (teams[i]->workersIndex() + 1);
+				int temp = taskCount;
+				for (int j = 0; j < temp; j++)
+				{
+					if (teams[i]->getWorkIndex(j)->getStatus() == false)
+					{
+						teams[i]->getWorkIndex(j)->setTask('A');
+						taskCount--;
+						freeWorker--;
+					}
+				}
 			}
 		}
-		std::cout << "Number of available workers -" << freeWorker << std::endl;
+		std::cout << "Number of available workers " << freeWorker << std::endl;
 
 	}
 	delete teams;
