@@ -6,9 +6,9 @@ Worker::Worker()
 {
 	task = '-';
 }
-void Worker::getTask(char inTask)
+char Worker::getTask()
 {
-	inTask = task;
+	return task;
 }
 void Worker::setTask(char inTask)
 {
@@ -47,7 +47,11 @@ int Manedger::getManedgerNum()
 	return manedgerNum;
 }
 
-bool Manedger::status()
+bool Manedger::getstatus()
 {
 	return statusTeam;
+}
+void Manedger::setstatus(bool inStatus)
+{
+	statusTeam = inStatus;
 }

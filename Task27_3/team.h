@@ -9,7 +9,7 @@ private:
 public:
 	Worker();
 	void setTask(char inTask);
-	void getTask(char inTask);
+	char getTask();
 	bool getStatus();
 };
 class Manedger:public Company
@@ -25,5 +25,6 @@ public:
 	int workersIndex();
 	void setManedgerNum(int& num);
 	int getManedgerNum();
-	bool status();
+	void setstatus(bool status);
+	bool getstatus();
 };

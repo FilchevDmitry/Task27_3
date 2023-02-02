@@ -6,5 +6,6 @@ private:
 	
 public:
 	void setName(std::string& inName);
-	void getName(std::string& inName);
+	std::string getName();
+	char simbol();
 };

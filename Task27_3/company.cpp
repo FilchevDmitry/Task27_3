@@ -6,7 +6,12 @@ void Company::setName(std::string& inName)
 {
 	name = inName;
 }
-void Company::getName(std::string& inName)
+std::string Company::getName()
 {
-	inName = name;
+	return name;
+}
+char Company::simbol()
+{
+	std::srand(time(NULL));
+	return 65 + rand() % (3);
 }

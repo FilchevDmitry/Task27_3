@@ -44,25 +44,32 @@ int main()
 		std::cin >> taskCount;
 		for (int i = 0; i < company; i++)
 		{
-			if (taskCount!=0)
+			int count = 0;
+			if (taskCount!=0&& teams[i]->getstatus()!=true)
 			{
 				taskCount += teams[i]->getManedgerNum();
 				std::srand(taskCount);
 				taskCount = std::rand() % (teams[i]->workersIndex() + 1);
-				int temp = taskCount;
-				for (int j = 0; j < temp; j++)
+				std::cout << "The task was received by the manager - " << teams[i]->getName() << std::endl;
+				for (int j = 0; j < teams[i]->workersIndex(); j++)
 				{
-					if (teams[i]->getWorkIndex(j)->getStatus() == false)
+					if (teams[i]->getWorkIndex(j)->getStatus() == false && taskCount != 0)
 					{
-						teams[i]->getWorkIndex(j)->setTask('A');
+						teams[i]->getWorkIndex(j)->setTask(teams[i]->simbol());
+						std::cout << "Task '" << teams[i]->getWorkIndex(j)->getTask() << "' was received by an employee named " <<
+							teams[i]->getWorkIndex(j)->getName() << std::endl;
 						taskCount--;
 						freeWorker--;
 					}
+					if(teams[i]->getWorkIndex(j)->getStatus() == true) count++;
+
+					if (count == teams[i]->workersIndex())
+						teams[i]->setstatus(true);
 				}
 			}
 		}
 		std::cout << "Number of available workers " << freeWorker << std::endl;
-
+		if (freeWorker == 0)exit = false;
 	}
 	delete teams;
 	return 0;
